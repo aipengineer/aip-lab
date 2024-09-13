@@ -28,6 +28,9 @@ cd your-repo
 ### 2. Install Dependencies
 
 ```bash
+# We are using pdf2image which requires poppler on the path on mac you can use brew for others checkout <https://pdf2image.readthedocs.io/en/latest/installation.html>
+brew install poppler
+
 poetry install
 ```
 
@@ -52,6 +55,10 @@ In this command:
 - `"Explain the chart trends in the document"` is the text query.
 
 The response will be printed to the terminal.
+
+```bash
+poetry run python app.py query examples/DDOG_Investor_Presentation_Aug-24.pdf "Explain the chart trends in the document"
+```
 
 ### FastAPI Server Mode
 
@@ -91,12 +98,16 @@ The server will be running on `http://0.0.0.0:8000`.
 
 ## Project Structure
 
-- `app.py`: The main application file that supports both CLI and FastAPI server modes.
+- `main.py`: CLI and server entry point
+- `colpali_service.py`: ColPali and BLIP-2 logic for document retrieval and response generation
+- `app.py`: FastAPI app and endpoints for health check and document query.
+- `utils.py`: Utility functions for loading images and handling PDFs.
 - `pyproject.toml`: Contains the project dependencies and configuration for **Poetry**.
+- `examples`: Directory containing example files for testing.
 
 ## Contributors
 
-- **Jens Weber** - [jens@aip.engineer](mailto:jens@aip.engineer)
+- **Jens Weber** - [https://github.com/jweberde](https://github.com/jweberde)
 
 ## Website
 

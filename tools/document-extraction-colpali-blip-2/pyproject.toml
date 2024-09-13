@@ -1,17 +1,24 @@
 [tool.poetry]
 name = "document-extraction-colpali-blip-2"
 version = "0.1.0"
-description = """
-This project is a multimodal document retrieval and question-answering system powered by ColPali and BLIP-2 models. It provides two modes of operation: a Command Line Interface (CLI) and a FastAPI-based REST server. 
-In the CLI mode, users can query a folder or file of documents (images) and receive a response to their question directly in the terminal. In server mode, the FastAPI application exposes two endpoints: a health check and a document-query endpoint. The document-query endpoint allows users to upload documents and ask a question via a simple HTTP request, returning the generated response in real time.
-The system leverages ColPali for document retrieval and BLIP-2 for generating context-aware answers, making it suitable for retrieval-augmented generation (RAG) tasks on multimodal datasets.
-"""
+description = "This project is a multimodal document retrieval and question-answering system powered by ColPali and BLIP-2 models. It provides two modes of operation: a Command Line Interface (CLI) and a FastAPI-based REST server. In the CLI mode, users can query a folder or file of documents (images) and receive a response to their question directly in the terminal. In server mode, the FastAPI application exposes two endpoints: a health check and a document-query endpoint. The document-query endpoint allows users to upload documents and ask a question via a simple HTTP request, returning the generated response in real time. The system leverages ColPali for document retrieval and BLIP-2 for generating context-aware answers, making it suitable for retrieval-augmented generation (RAG) tasks on multimodal datasets."
 authors = ["Jens Weber <jens@aip.engineer>"]
 license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+colpali-engine = ">=0.3.0,<0.4.0"
+transformers = "^4.44.2"
+torch = "^2.4.1"
+pillow = "^10.4.0"
+fastapi = "^0.114.1"
+uvicorn = "^0.30.6"
+python-multipart = "^0.0.9"
+pdf2image = "^1.17.0"
+torchvision = "^0.19.1"
+torchaudio = "^2.4.1"
+python-dotenv = "^1.0.1"
 
 
 [build-system]
