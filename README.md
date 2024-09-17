@@ -4,6 +4,16 @@
 
 Visit our website for more details: [https://aiproduct.engineer](https://aiproduct.engineer)
 
+---
+
+## Projects
+
+### Multimodal Document Retrieval and Question-Answering System
+
+This project is a multimodal document retrieval and question-answering system that uses **ColPali** and **BLIP-2** models for document retrieval and response generation. [SourceCode](./tools/document-extraction-colpali-blip-2/)
+
+---
+
 ## Main Contributors:
 - [Rod Riverara](https://github.com/rorcde)
 - [Jens Weber](https://github.com/jweberde)
