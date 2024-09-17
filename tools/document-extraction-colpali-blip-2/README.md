@@ -7,6 +7,8 @@ This project is a multimodal document retrieval and question-answering system th
 
 The system is designed to handle multimodal datasets, including images and text, and is suitable for **retrieval-augmented generation (RAG)** tasks.
 
+The project is designed to work locally on Apple Silicon, adaption to CUDA should be easy. In order to save resources and also be able to run it on regular hardware images are batch-processed [(4 images at a time)](./colpali_service.py).
+
 ## Features
 
 - **Multimodal Document Retrieval**: Uses **ColPali** to retrieve the most relevant document based on text queries.
@@ -32,6 +34,9 @@ cd your-repo
 brew install poppler
 
 poetry install
+
+cp .env.example .env
+# Add yor huggignface token as HF_TOKEN
 ```
 
 This will install all the necessary dependencies, including **ColPali**, **BLIP-2**, **FastAPI**, and **Torch**.
@@ -42,12 +47,12 @@ You can run the project in two different modes: **CLI Mode** for direct querying
 
 ### CLI Mode
 
-You can query a folder or file of documents and get a response based on a text query.
+You can query a folder or file of documents and get a response based on a text query. 
 
 #### Example Usage:
 
 ```bash
-poetry run python app.py query /path/to/folder "Explain the chart trends in the document"
+poetry run python main.py query /path/to/folder "Explain the chart trends in the document"
 ```
 
 In this command:
@@ -57,7 +62,7 @@ In this command:
 The response will be printed to the terminal.
 
 ```bash
-poetry run python app.py query examples/DDOG_Investor_Presentation_Aug-24.pdf "Explain the chart trends in the document"
+poetry run python main.py query examples/DDOG_Investor_Presentation_Aug-24-extracted_4pages.pdf "Explain the chart trends in the document"
 ```
 
 ### FastAPI Server Mode
@@ -104,6 +109,7 @@ The server will be running on `http://0.0.0.0:8000`.
 - `utils.py`: Utility functions for loading images and handling PDFs.
 - `pyproject.toml`: Contains the project dependencies and configuration for **Poetry**.
 - `examples`: Directory containing example files for testing.
+- `test-colpali.py`: A standalone test file for understanding what ColPali is capable of. `poetry run python test-colpali.py`
 
 ## Contributors
 

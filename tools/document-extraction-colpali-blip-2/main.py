@@ -17,10 +17,11 @@ def run_query_cli(path: str, query: str):
     try:
         documents = load_images(path=path)
         closest_document = retrieve_closest_document(query, documents)
+        closest_document.show()
         response = generate_response(closest_document, query)
         logger.info(f"Generated response: {response}")
     except Exception as e:
-        logger.error(f"Error: {e}")
+        logger.exception(f"Error: {e}")
 
 # CLI function to start FastAPI server
 def run_server():
@@ -47,12 +48,16 @@ def main():
 
     args = parser.parse_args()
 
-    if args.command == "query":
-        run_query_cli(args.path, args.query)
-    elif args.command == "server":
-        run_server()
-    else:
-        parser.print_help()
+    try:
+        if args.command == "query":
+            run_query_cli(args.path, args.query)
+        elif args.command == "server":
+            run_server()
+        else:
+            parser.print_help()
+    except Exception as e:
+        logger.exception(f'Main Error {e}')
+        raise
 
 if __name__ == "__main__":
     main()

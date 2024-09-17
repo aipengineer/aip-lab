@@ -2,14 +2,15 @@ import os
 import logging
 from typing import List
 from fastapi import UploadFile
-from PIL import Image
 import io
+from PIL.Image import Image
+
 from pdf2image import convert_from_bytes, convert_from_path
 
 # Initialize logging
 logger = logging.getLogger(__name__)
 
-def load_images(files: List[UploadFile] = None, path: str = None):
+def load_images(files: List[UploadFile] = None, path: str = None) -> List[Image]:
     """
     Load images from either uploaded files, a file path (file or folder), or PDFs.
     """
