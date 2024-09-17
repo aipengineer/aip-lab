@@ -15,7 +15,7 @@ This project is a multimodal document retrieval and question-answering system th
 ---
 
 ## Main Contributors:
-- [Rod Riverara](https://github.com/rorcde)
+- [Rod Rivera](https://github.com/rorcde)
 - [Jens Weber](https://github.com/jweberde)
 
 Stay tuned for more AI tools, resources, and updates!
