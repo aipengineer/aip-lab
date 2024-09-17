@@ -17,7 +17,7 @@ def run_query_cli(path: str, query: str):
     try:
         documents = load_images(path=path)
         closest_document = retrieve_closest_document(query, documents)
-        closest_document.show()
+        #closest_document.show()
         response = generate_response(closest_document, query)
         logger.info(f"Generated response: {response}")
     except Exception as e:
