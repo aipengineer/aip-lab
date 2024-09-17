@@ -1,6 +1,10 @@
 # Multimodal Document Retrieval and Question-Answering System
 
-This project is a multimodal document retrieval and question-answering system that uses **ColPali** and **BLIP-2** models for document retrieval and response generation. It supports two main modes of operation:
+> Checkout our website: [https://aiproduct.engineer](https://aiproduct.engineer)
+
+This project is a multimodal document retrieval and question-answering system that uses **ColPali** and **BLIP-2** models for document retrieval and response generation. 
+
+It supports two main modes of operation:
 
 1. **CLI Mode**: Allows querying of a folder or file of documents (images) directly from the command line.
 2. **FastAPI REST Server**: Provides a REST API for querying documents and generating responses through HTTP requests.
